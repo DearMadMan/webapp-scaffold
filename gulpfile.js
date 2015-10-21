@@ -10,6 +10,8 @@ var uglify = require('gulp-uglify');
 var clean=require('gulp-clean');
 var plumber=require('gulp-plumber');
 var extreplace=require('gulp-ext-replace');
+var babel=require('gulp-babel');
+
 
 
 gulp.task('html', function() {
@@ -30,7 +32,10 @@ gulp.task('asset',function(){
 gulp.task('js',function(){
     console.log('moving js start...');
     gulp.src('app/js/**/*.js')
+    .pipe(plumber())
+    .pipe(babel())
     .pipe(uglify())
+    .pipe(plumber.stop())
     .pipe(gulp.dest('dist/js'));
 });
 
