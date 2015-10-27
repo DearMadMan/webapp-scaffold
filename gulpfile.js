@@ -11,7 +11,7 @@ var clean = require('gulp-clean');
 var plumber = require('gulp-plumber');
 var extreplace = require('gulp-ext-replace');
 var babel = require('gulp-babel');
-var usermin = require('gulp-usemin');
+var usemin = require('gulp-usemin');
 var rev = require('gulp-rev');
 
 
@@ -67,7 +67,7 @@ gulp.task('sass', function() {
 
 
 gulp.task('server', function() {
-    var server = liveServer.static('dist', 3000);
+    var server = liveServer.static('dist', 8000);
     server.start();
     gulp.watch('app/*.html', ['html']);
     gulp.watch('app/sass/**/*.scss', ['sass']);
